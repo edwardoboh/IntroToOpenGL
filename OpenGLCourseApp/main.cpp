@@ -21,6 +21,13 @@ int main()
 	glewExperimental = GL_TRUE;
 
 	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Test Window", NULL, NULL);
+	if (!window)
+	{
+		printf("GLFW Window creation failed");
+		glfwTerminate();
+		return 1;
+	}
+
 	glfwMakeContextCurrent(window);
 
 	if (glewInit() != GLEW_OK)
